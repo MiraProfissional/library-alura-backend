@@ -1,0 +1,33 @@
+{
+  "name": "library-alura-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "lint": "eslint src/**/*.{js,ts}",
+    "format": "prettier --write src/**/*.{js,ts}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/MiraProfissional/library-alura-backend.git"
+  },
+  "author": "Joao Vitor Garcia Mira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MiraProfissional/library-alura-backend/issues"
+  },
+  "homepage": "https://github.com/MiraProfissional/library-alura-backend#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
+    "prettier": "^3.3.3"
+  }
+}
