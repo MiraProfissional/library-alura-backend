@@ -1,12 +1,11 @@
 const express = require("express");
+const bookRoute = require("./Routes/book")
 
 const app = express();
 
 const port = 3333;
 
-app.get('/', (req,res) => {
-  res.send("Ola mundo")
-});
+app.use('/livros', bookRoute)
 
 app.listen(port , () => {
   console.log(`Escutando a porta ${port}`)
