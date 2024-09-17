@@ -1,4 +1,4 @@
-const { getAllBooks, getBookWithId, insertBook } = require('../Services/book');
+import { getAllBooks, getBookWithId, insertBook } from './Services/book.js';
 
 function getBooks(req, res) {
   try {
@@ -33,8 +33,4 @@ function postBook(req, res) {
   }
 }
 
-module.exports = {
-  getBooks,
-  getEspecificBook,
-  postBook,
-};
+export { getBooks, getEspecificBook, postBook };

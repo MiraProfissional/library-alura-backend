@@ -1,4 +1,4 @@
-const fs = require('fs');
+import fs from 'fs';
 
 function getAllBooks() {
   return JSON.parse(fs.readFileSync('books.json'));
@@ -20,8 +20,4 @@ function insertBook(newBook) {
   fs.writeFileSync('books.json', JSON.stringify(newBooksList));
 }
 
-module.exports = {
-  getAllBooks,
-  getBookWithId,
-  insertBook,
-};
+export { getAllBooks, getBookWithId, insertBook };

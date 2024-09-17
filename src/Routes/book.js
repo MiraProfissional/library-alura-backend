@@ -1,5 +1,5 @@
-const { Router } = require('express');
-const { getBooks, getEspecificBook, postBook } = require('../Controler/book');
+import { Router } from 'express';
+import { getBooks, getEspecificBook, postBook } from './Controler/book.js';
 
 const router = Router();
 
@@ -17,4 +17,4 @@ router.delete('/', (req, res) => {
   res.send('Requisicao de DELETE');
 });
 
-module.exports = router;
+export default router;
