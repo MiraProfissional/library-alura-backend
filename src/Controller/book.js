@@ -1,4 +1,9 @@
-import { getAllBooks, getBookWithId, insertBook } from './Services/book.js';
+import {
+  getAllBooks,
+  getBookWithId,
+  insertBook,
+  modifyBook,
+} from '../Services/book.js';
 
 function getBooks(req, res) {
   try {
@@ -33,4 +38,16 @@ function postBook(req, res) {
   }
 }
 
-export { getBooks, getEspecificBook, postBook };
+function patchBook(req, res) {
+  try {
+    const bookId = req.params.id;
+    const body = req.body;
+    modifyBook(body, bookId);
+    res.send('Book modified successfully');
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+export { getBooks, getEspecificBook, postBook, patchBook };

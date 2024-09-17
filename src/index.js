@@ -1,5 +1,4 @@
 import express from 'express';
-
 import bookRoute from './Routes/book.js';
 
 const app = express();

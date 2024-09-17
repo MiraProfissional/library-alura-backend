@@ -20,4 +20,16 @@ function insertBook(newBook) {
   fs.writeFileSync('books.json', JSON.stringify(newBooksList));
 }
 
-export { getAllBooks, getBookWithId, insertBook };
+function modifyBook(modifications, id) {
+  let currentBooks = JSON.parse(fs.readFileSync('books.json'));
+
+  const modifiedIndex = currentBooks.findIndex((book) => book.id == id);
+
+  const modifiedContent = { ...currentBooks[modifiedIndex], ...modifications }; //create an object with the current attributes, and modify it based in the object 'modifications'
+
+  currentBooks[modifiedIndex] = modifiedContent;
+
+  fs.writeFileSync('books.json', JSON.stringify(currentBooks));
+}
+
+export { getAllBooks, getBookWithId, insertBook, modifyBook };
