@@ -32,4 +32,12 @@ function modifyBook(modifications, id) {
   fs.writeFileSync('books.json', JSON.stringify(currentBooks));
 }
 
-export { getAllBooks, getBookWithId, insertBook, modifyBook };
+function deleteBookById(id) {
+  let currentBooks = JSON.parse(fs.readFileSync('books.json'));
+
+  const booksAfterDelete = currentBooks.filter((book) => book.id != id);
+
+  fs.writeFileSync('books.json', JSON.stringify(booksAfterDelete));
+}
+
+export { getAllBooks, getBookWithId, insertBook, modifyBook, deleteBookById };

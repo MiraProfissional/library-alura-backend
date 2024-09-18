@@ -4,6 +4,7 @@ import {
   getEspecificBook,
   postBook,
   patchBook,
+  deleteBook,
 } from '../Controller/book.js';
 
 const router = Router();
@@ -16,8 +17,6 @@ router.post('/', postBook);
 
 router.patch('/:id', patchBook);
 
-router.delete('/', (req, res) => {
-  res.send('Requisicao de DELETE');
-});
+router.delete('/:id', deleteBook);
 
 export default router;

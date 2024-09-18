@@ -3,6 +3,7 @@ import {
   getBookWithId,
   insertBook,
   modifyBook,
+  deleteBookById,
 } from '../Services/book.js';
 
 function getBooks(req, res) {
@@ -50,4 +51,15 @@ function patchBook(req, res) {
   }
 }
 
-export { getBooks, getEspecificBook, postBook, patchBook };
+function deleteBook(req, res) {
+  try {
+    const bookId = req.params.id;
+    deleteBookById(bookId);
+    res.send('Book delete successfully');
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+export { getBooks, getEspecificBook, postBook, patchBook, deleteBook };
