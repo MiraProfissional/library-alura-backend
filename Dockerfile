@@ -10,6 +10,6 @@ RUN npm install -g eslint prettier
 
 COPY . .
 
-EXPOSE 3333
+EXPOSE 8000
 
 CMD ["npm", "start"]
