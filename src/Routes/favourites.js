@@ -1,9 +1,15 @@
 import { Router } from 'express';
-import { getFavourite, deleteFavouriteBook } from '../Controller/favourites.js';
+import {
+  getFavourites,
+  deleteFavouriteBook,
+  postFavourite,
+} from '../Controller/favourites.js';
 
 const router = Router();
 
-router.get('/', getFavourite);
+router.get('/', getFavourites);
+
+router.post('/', postFavourite);
 
 router.delete('/:id', deleteFavouriteBook);
 

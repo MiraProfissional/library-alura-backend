@@ -1,9 +1,24 @@
-import { getAllFavourites, deleteFavourites } from '../Services/favourites.js';
+import {
+  getAllFavourites,
+  postOneFavourite,
+  deleteFavourites,
+} from '../Services/favourites.js';
 
-function getFavourite(req, res) {
+function getFavourites(req, res) {
   try {
     const favourites = getAllFavourites();
     res.send(favourites);
+  } catch (error) {
+    res.status(500);
+    res.send(error.message);
+  }
+}
+
+function postFavourite(req, res) {
+  try {
+    const favouriteBook = req.body;
+    postOneFavourite(favouriteBook);
+    res.send('Favourite post successfully');
   } catch (error) {
     res.status(500);
     res.send(error.message);
@@ -26,4 +41,4 @@ function deleteFavouriteBook(req, res) {
   }
 }
 
-export { getFavourite, deleteFavouriteBook };
+export { getFavourites, postFavourite, deleteFavouriteBook };
