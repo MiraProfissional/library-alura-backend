@@ -16,9 +16,14 @@ function getFavourites(req, res) {
 
 function postFavourite(req, res) {
   try {
-    const favouriteBook = req.body;
-    postOneFavourite(favouriteBook);
-    res.send('Favourite post successfully');
+    const bookId = req.params.id;
+    if (bookId && Number(bookId)) {
+      postOneFavourite(bookId);
+      res.send('Favourite post successfully');
+    } else {
+      res.status(422);
+      res.send('Invalid ID');
+    }
   } catch (error) {
     res.status(500);
     res.send(error.message);
